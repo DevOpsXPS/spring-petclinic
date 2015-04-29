@@ -9,14 +9,14 @@
 
 ## Running petclinic locally
 ```
-	git clone https://github.com/SpringSource/spring-petclinic.git
+	git clone https://github.com/DevOpsXPS/spring-petclinic.git
 	mvn tomcat7:run
 ```
 
 You can then access petclinic here: http://localhost:9966/petclinic/
 
 ## In case you find a bug/suggested improvement for Spring Petclinic
-Our issue tracker is available here: https://github.com/SpringSource/spring-petclinic/issues
+Our issue tracker is available here: https://github.com/DevOpsXPS/spring-petclinic/issues
 
 ## Working with Petclinic in Eclipse/STS
 
@@ -34,7 +34,7 @@ If m2e is not there, just follow the install process here: http://eclipse.org/m2
 
 1) In the command line
 ```
-git clone https://github.com/SpringSource/spring-petclinic.git
+git clone https://github.com/DevOpsXPS/spring-petclinic.git
 ```
 2) Inside Eclipse
 ```
