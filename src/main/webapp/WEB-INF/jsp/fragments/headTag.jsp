@@ -12,8 +12,8 @@ DevOpsXPS :: a demo application
     <spring:url value="/webjars/bootstrap/2.3.0/css/bootstrap.min.css" var="bootstrapCss"/>
     <link href="${bootstrapCss}" rel="stylesheet"/>
 
-    <spring:url value="/resources/css/petclinic.css" var="petclinicCss"/>
-    <link href="${petclinicCss}" rel="stylesheet"/>
+    <spring:url value="/resources/css/devopsxps.css" var="devopsxpsCss"/>
+    <link href="${devopsxpsCss}" rel="stylesheet"/>
 
     <spring:url value="/webjars/jquery/2.0.3/jquery.js" var="jQuery"/>
     <script src="${jQuery}"></script>
