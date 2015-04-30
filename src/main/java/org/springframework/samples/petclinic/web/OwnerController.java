@@ -58,31 +58,31 @@ public class OwnerController {
         dataBinder.setDisallowedFields("id");
     }
 
-    @RequestMapping(value = "/owners/new", method = RequestMethod.GET)
+    @RequestMapping(value = "/devopsers/new", method = RequestMethod.GET)
     public String initCreationForm(Map<String, Object> model) {
         Owner owner = new Owner();
         model.put("owner", owner);
-        return "owners/createOrUpdateOwnerForm";
+        return "devopsers/createOrUpdateOwnerForm";
     }
 
-    @RequestMapping(value = "/owners/new", method = RequestMethod.POST)
+    @RequestMapping(value = "/devopsers/new", method = RequestMethod.POST)
     public String processCreationForm(@Valid Owner owner, BindingResult result, SessionStatus status) {
         if (result.hasErrors()) {
-            return "owners/createOrUpdateOwnerForm";
+            return "devopsers/createOrUpdateOwnerForm";
         } else {
             this.clinicService.saveOwner(owner);
             status.setComplete();
-            return "redirect:/owners/" + owner.getId();
+            return "redirect:/devopsers/" + owner.getId();
         }
     }
 
-    @RequestMapping(value = "/owners/find", method = RequestMethod.GET)
+    @RequestMapping(value = "/devopsers/find", method = RequestMethod.GET)
     public String initFindForm(Map<String, Object> model) {
         model.put("owner", new Owner());
-        return "owners/findOwners";
+        return "devopsers/findOwners";
     }
 
-    @RequestMapping(value = "/owners", method = RequestMethod.GET)
+    @RequestMapping(value = "/devopsers", method = RequestMethod.GET)
     public String processFindForm(Owner owner, BindingResult result, Map<String, Object> model) {
 
         // allow parameterless GET request for /owners to return all records
@@ -95,34 +95,34 @@ public class OwnerController {
         if (results.size() < 1) {
             // no owners found
             result.rejectValue("lastName", "notFound", "not found");
-            return "owners/findOwners";
+            return "devopsers/findOwners";
         }
         if (results.size() > 1) {
             // multiple owners found
             model.put("selections", results);
-            return "owners/ownersList";
+            return "devopsers/ownersList";
         } else {
             // 1 owner found
             owner = results.iterator().next();
-            return "redirect:/owners/" + owner.getId();
+            return "redirect:/devopsers/" + owner.getId();
         }
     }
 
-    @RequestMapping(value = "/owners/{ownerId}/edit", method = RequestMethod.GET)
+    @RequestMapping(value = "/devopsers/{ownerId}/edit", method = RequestMethod.GET)
     public String initUpdateOwnerForm(@PathVariable("ownerId") int ownerId, Model model) {
         Owner owner = this.clinicService.findOwnerById(ownerId);
         model.addAttribute(owner);
-        return "owners/createOrUpdateOwnerForm";
+        return "devopsers/createOrUpdateOwnerForm";
     }
 
-    @RequestMapping(value = "/owners/{ownerId}/edit", method = RequestMethod.PUT)
+    @RequestMapping(value = "/devopsers/{ownerId}/edit", method = RequestMethod.PUT)
     public String processUpdateOwnerForm(@Valid Owner owner, BindingResult result, SessionStatus status) {
         if (result.hasErrors()) {
-            return "owners/createOrUpdateOwnerForm";
+            return "devopsers/createOrUpdateOwnerForm";
         } else {
             this.clinicService.saveOwner(owner);
             status.setComplete();
-            return "redirect:/owners/{ownerId}";
+            return "redirect:/devopsers/{ownerId}";
         }
     }
 
@@ -132,9 +132,9 @@ public class OwnerController {
      * @param ownerId the ID of the owner to display
      * @return a ModelMap with the model attributes for the view
      */
-    @RequestMapping("/owners/{ownerId}")
+    @RequestMapping("/devopsers/{ownerId}")
     public ModelAndView showOwner(@PathVariable("ownerId") int ownerId) {
-        ModelAndView mav = new ModelAndView("owners/ownerDetails");
+        ModelAndView mav = new ModelAndView("devopsers/ownerDetails");
         mav.addObject(this.clinicService.findOwnerById(ownerId));
         return mav;
     }
