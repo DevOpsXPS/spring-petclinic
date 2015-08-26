@@ -1,7 +1,7 @@
 # Sample Application for ServiceNow / XebiaLabs DevOps solution
 
 ## What does it look like?
--spring-petclinic has been deployed here on cloudfoundry: http://demo-spring-petclinic.cfapps.io/
+spring-petclinic has been deployed here on cloudfoundry: http://demo-spring-petclinic.cfapps.io/
 
 
 ## Understanding the Spring Petclinic application with a few diagrams
